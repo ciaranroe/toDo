@@ -1,0 +1,19 @@
+<%=form_for @task do |f|%>
+
+<%=f.label "Title" %>
+<br>
+<!-- we have specified the ":title" in the model-->
+<%= f.text_field :title %>
+<br>
+<%= f.label "Detail"%>
+<br>
+<%= f.text_area :details%>
+<br>
+    <%if request.path.include?("edit")%>
+    <%= f.label "Completed?"%>
+    <%= f.check_box :Completed%>
+    <%end%>
+<br>
+<!-- this button is new for new and update for edits-->
+<%= f.submit %>
+<%end%>

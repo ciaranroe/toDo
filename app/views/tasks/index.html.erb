@@ -1,0 +1,37 @@
+<h1>My Tasks</h1>
+
+
+<!--
+to put the items in a list, use the <ul> tags
+-->
+<ul>
+<% @task.each do |task| %>
+<li>
+    <!-- if we did not have the .title we would get the Id returned-->
+    <p><strong><%= link_to task.title, task_path(task)%></strong></p>
+    
+    
+
+    
+    <!-- this is a checkbox -->
+    
+    
+    <!-- 
+    below we create a link that is an action 
+    this is deinfed in the routes file
+    -->
+    <p>
+    <%=link_to(check_box_tag(:task, :Completed, task.Completed), 
+    "/tasks/#{task.id}/complete/#{!task.Completed}")%>
+    </p>
+</li>
+<%end%>
+</ul>
+
+<!-- link to create new task-->
+<%= link_to 'New Task', new_task_path%>
+
+
+<!-- link to delete new task-->
+
+
